@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vulnerable Page</title>
+</head>
+<body>
+    <h1>User Profile</h1>
+    <!-- Vulnerable to XSS -->
+    <div id="user-content"></div>
+
+    <script>
+        // Simulate getting user input from an external source
+        var userInput = '<script>alert("XSS Attack!")</script>';
+
+        // Insert the user input directly into the DOM
+        document.getElementById('user-content').innerHTML = userInput;
+    </script>
+</body>
+</html>
